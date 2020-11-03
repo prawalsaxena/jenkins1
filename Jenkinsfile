@@ -60,7 +60,7 @@ parameters {
     }//stage run
   }//job stages
 }//pipeline
-
+}
 def getUserNameFromCause(currentBuild){
   def userCause
   try{
