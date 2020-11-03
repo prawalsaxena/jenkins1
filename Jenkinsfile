@@ -54,27 +54,4 @@ parameters {
     }//stage run
   }//job stages
 }//pipeline
-
-def configuration() {
-  stage('Stage: Configuration')
-  {
-    sh """
-      ls -ltrh
-      """
-  }
-}
    
-
-def getUserNameFromCause(currentBuild){
-  def userCause
-  try{
-    userCause=currentBuild.getBuildCauses('hudson.model.Cause$UserIdCause')
-    if (userCause==null || userCause.size()<1){
-      return ''
-    }
-    userCause=userCause[0]
-  }catch(all){
-    return ''
-  }
-  return userCause.userName!=null?"${userCause.userName}":''
-}
