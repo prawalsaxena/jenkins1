@@ -47,7 +47,7 @@ parameters {
       post{
         success{
           script{
-            inject_configuration()
+          configuration()
           }
         }
       }
