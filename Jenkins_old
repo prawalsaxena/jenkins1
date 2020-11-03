@@ -42,8 +42,6 @@ parameters {
           steps{
             script{
               echo "running on tag ${TagName}"
-
-
             }
           }
         }
