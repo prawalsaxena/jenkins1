@@ -47,13 +47,23 @@ parameters {
       post{
         success{
           script{
-            env.GENERATED_BUILD_TAG=build_tag
+            inject_configuration()
           }
         }
       }
     }//stage run
   }//job stages
 }//pipeline
+
+def configuration() {
+  stage('Stage: Configuration')
+  {
+    sh """
+      ls -ltrh
+      """
+  }
+}
+   
 
 def getUserNameFromCause(currentBuild){
   def userCause
