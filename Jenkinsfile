@@ -47,7 +47,7 @@ parameters {
       post{
         success{
           script{
-          configuration()
+          env.GENERATED_BUILD_TAG=build_tag
           }
         }
       }
