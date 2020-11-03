@@ -34,6 +34,7 @@ parameters {
               $class: 'RelativeTargetDirectory',
               relativeTargetDir: '.Build-Dir'
             ]
+          ]
           ])
           }
     stage('Tag Name '){
