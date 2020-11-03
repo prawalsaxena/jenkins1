@@ -27,7 +27,7 @@ parameters {
 
   stages{
     stage('parameterBuild'){
-      when{ expression{params.SkipRun}}
+      #when{ expression{params.SkipRun}}
       steps{
         script{
           echo 'Setting job parameters'
@@ -35,7 +35,7 @@ parameters {
       }
     }
     stage('Tag Name '){
-      when{ expression{!params.SkipRun}}
+      #when{ expression{!params.SkipRun}}
       stages{
 
         stage('test'){
