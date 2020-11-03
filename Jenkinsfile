@@ -41,7 +41,7 @@ parameters {
         stage('test'){
           steps{
             script{
-              echo "running on tag ${TagName}"
+              echo "running on tag ${tagName}"
             }
           }
         }
