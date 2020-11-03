@@ -21,7 +21,7 @@ choice(choices: "all\ndevelop\nqa\nuat\nprod\n", description: 'Which environment
           description: 'tag name',
           type: 'PT_SINGLE_SELECT',
           groovyScript: """def gettags = ("git ls-remote -thttps://github.com/prawalsaxena/gdi-notifications.git").execute()
-              return gettags.text.readLines().collect { it.split()[1].replaceAll('refs/tags/', '').replaceAll("\\\\^\\\\{\\\\}", '')}
+              return gettags.text.readLines().collect { it.split()[1].replaceAll('+refs/tags/*:refs/remotes/origin/tags/*', '').replaceAll("\\\\^\\\\{\\\\}", '')}
                           """,)
     }
 
