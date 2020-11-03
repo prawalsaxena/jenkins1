@@ -1,9 +1,3 @@
-def executingUser=''
-def configBuildTagSource=''
-def pushedConfigHash=''
-
-
-
 pipeline{
   agent {node {label 'linux'}}
   options{
