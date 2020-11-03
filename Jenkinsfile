@@ -36,7 +36,6 @@ parameters {
             ]
           ]
           ])
-          }
     stage('Tag Name '){
       when{ expression{!params.SkipRun}}
       stages{
@@ -57,6 +56,7 @@ parameters {
             env.GENERATED_BUILD_TAG=build_tag
           }
         }
+      }
     }//stage run
   }//job stages
 }//pipeline
