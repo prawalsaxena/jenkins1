@@ -14,15 +14,15 @@ pipeline{
   }
 
 parameters {
-choice(choices: "all\ndevelop\nqa\nuat\nprod\n", description: 'Which environment to take backup?', name: 'DEPLOY_ENV_CHOICE')
-      extendedChoice(
-          name: 'TagName',
-          defaultValue: '',
-          description: 'tag name',
-          type: 'PT_SINGLE_SELECT',
-          groovyScript: """def gettags = ("git ls-remote -thttps://github.com/prawalsaxena/gdi-notifications.git").execute()
-              return gettags.text.readLines().collect { it.split()[1].replaceAll('+refs/tags/*:refs/remotes/origin/tags/*', '').replaceAll("\\\\^\\\\{\\\\}", '')}
-                          """,)
+    choice(choices: 'dev\nqa2\nuat\nprod\n', description: 'Which environment?', name: 'DEPLOY_ENV_CHOICE')
+    extendedChoice(
+    name: 'tagName',
+    defaultValue: '',
+    description: 'tag name',
+    type: 'PT_SINGLE_SELECT',
+    groovyScript: """def gettags = ("git ls-remote -t https://github.com/Gale43/Mackenzie-Precision-Backend.git").execute()
+        return gettags.text.readLines().collect { it.split()[1].replaceAll('refs/tags/', '').replaceAll("\\\\^\\\\{\\\\}", '')}
+                    """,)
     }
 
 
