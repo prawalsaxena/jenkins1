@@ -20,20 +20,22 @@ parameters {
     }
 
 
-
-  environment{
-      def GENERATED_BUILD_TAG=''
-  }
-
   stages{
-    stage('parameterBuild'){
-      when{ expression{params.SkipRun}}
-      steps{
-        script{
-          echo 'Setting job parameters'
-        }
-      }
-    }
+    steps {
+        checkout(
+        changelog: false,
+        poll: false,
+        scm: [
+          $class: 'GitSCM',
+          branches: [[name: "${params.tagName}"]],
+          doGenerateSubmoduleConfigurations: false,
+          extensions: [
+            [
+              $class: 'RelativeTargetDirectory',
+              relativeTargetDir: '.Build-Dir'
+            ]
+          ])
+          }
     stage('Tag Name '){
       when{ expression{!params.SkipRun}}
       stages{
