@@ -15,7 +15,7 @@ parameters {
     description: 'tag name',
     type: 'PT_SINGLE_SELECT',
     groovyScript: """def gettags = ("git ls-remote -t https://github.com/prawalsaxena/jenkins1.git").execute()
-        return gettags.text.readLines().collect { it.split()[1].replaceAll('+refs/tags/*:refs/remotes/origin/tags/*', '').replaceAll("\\\\^\\\\{\\\\}", '')}
+        return gettags.text.readLines().collect { it.split()[1].replaceAll('+refs/tags/*', '').replaceAll("\\\\^\\\\{\\\\}", '')}
                     """,)
     }
 
