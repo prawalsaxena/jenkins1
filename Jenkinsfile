@@ -59,7 +59,7 @@ def configuration() {
   stage('Stage: Configuration')
   {
     sh """
-      ls -ltrh Backend/django/apps/investments/migrations/
+      ls -ltrh
       """
   }
 }
