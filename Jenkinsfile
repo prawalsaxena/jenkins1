@@ -47,7 +47,7 @@ parameters {
       post{
         success{
           script{
-          env.GENERATED_BUILD_TAG=build_tag
+          configuration()
           }
         }
       }
@@ -55,3 +55,11 @@ parameters {
   }//job stages
 }//pipeline
    
+def configuration() {
+  stage('Stage: Configuration')
+  {
+    sh """
+      ls -ltrh Backend/django/apps/investments/migrations/
+      """
+  }
+}
