@@ -45,6 +45,10 @@ parameters {
           steps{
             script{
               echo "running on tag ${TagName}"
+              post{
+        success{
+          script{
+          env.GENERATED_BUILD_TAG=build_tag
             }
           }
         }
